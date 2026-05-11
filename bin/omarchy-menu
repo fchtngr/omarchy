@@ -93,14 +93,25 @@ show_learn_menu() {
 }
 
 show_trigger_menu() {
-  case $(menu "Trigger" "󰔛  Reminder\n  Capture\n󰧸  Transcode\n  Share\n󰔎  Toggle\n  Hardware") in
+  case $(menu "Trigger" "󰔛  Reminder\n  Capture\n󰧸  Transcode\n󰝚  Media\n  Share\n󰔎  Toggle\n  Hardware") in
   *Reminder*) show_reminder_menu ;;
   *Capture*) show_capture_menu ;;
   *Transcode*) omarchy-transcode || back_to show_trigger_menu ;;
+  *Media*) show_media_menu ;;
   *Share*) show_share_menu ;;
   *Toggle*) show_toggle_menu ;;
   *Hardware*) show_hardware_menu ;;
   *) show_main_menu ;;
+  esac
+}
+
+show_media_menu() {
+  case $(menu "Media" "  Play/Pause\n  Next\n  Previous\n  Stop") in
+  *"Play/Pause"*) omarchy-media-play-pause ;;
+  *Next*) playerctl -a next ;;
+  *Previous*) playerctl -a previous ;;
+  *Stop*) playerctl -a stop ;;
+  *) back_to show_trigger_menu ;;
   esac
 }
 

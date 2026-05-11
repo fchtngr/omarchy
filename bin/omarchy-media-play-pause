@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# omarchy:summary=Toggle media playback and show what's playing when resuming
+# omarchy:group=media
+# omarchy:name=play-pause
+# omarchy:examples=omarchy media play-pause
+
+was_playing=false
+if playerctl -a status 2>/dev/null | grep -qx "Playing"; then
+  was_playing=true
+fi
+
+playerctl -a play-pause || exit 1
+
+if [[ $was_playing == false ]]; then
+  sleep 0.2
+  now_playing=$(playerctl -a metadata --format '{{artist}}: {{title}}' 2>/dev/null)
+
+  if [[ -n $now_playing ]]; then
+    notify-send -u low "󰝚    Now playing" "$now_playing"
+  fi
+fi

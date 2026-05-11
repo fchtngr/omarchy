@@ -6,7 +6,7 @@
   "height": 26,
   "width": 0,
   "modules-left": ["custom/omarchy", "hyprland/workspaces"],
-  "modules-center": ["clock", "custom/weather", "custom/update", "custom/voxtype", "custom/screenrecording-indicator", "custom/idle-indicator", "custom/notification-silencing-indicator"],
+  "modules-center": ["clock", "custom/weather", "custom/media-play-pause", "custom/update", "custom/voxtype", "custom/screenrecording-indicator", "custom/idle-indicator", "custom/notification-silencing-indicator"],
   "modules-right": [
     "group/tray-expander",
     "bluetooth",
@@ -73,6 +73,11 @@
     "interval": 60,
     "tooltip": false,
     "on-click": "notify-send -u low \"$(omarchy-weather-status)\""
+  },
+  "custom/media-play-pause": {
+    "format": "󰐎",
+    "tooltip": false,
+    "on-click": "omarchy-media-play-pause"
   },
   "network": {
     "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],

@@ -79,6 +79,11 @@ tooltip {
   padding: 0;
 }
 
+#custom-media-play-pause {
+  min-width: 14px;
+  margin-right: 7.5px;
+}
+
 .hidden {
   opacity: 0;
 }
@@ -135,6 +140,8 @@ tooltip {
 .left #custom-expand-icon, .right #custom-expand-icon { margin: 1.5px 0; padding: 6px 0; min-height: 12px; }
 .left #clock, .right #clock { margin: 8.75px 0 0 0; }
 .left #custom-weather, .right #custom-weather { margin: 1.5px 0; padding: 6px 0; min-height: 12px; min-width: 14px; margin-right: 4px; }
+.left #custom-media-play-pause, .right #custom-media-play-pause,
+.left #custom-media-next, .right #custom-media-next { margin: 1.5px 0; padding: 6px 0; min-width: 0; min-height: 12px; }
 
 .left #custom-screenrecording-indicator, .right #custom-screenrecording-indicator,
 .left #custom-idle-indicator, .right #custom-idle-indicator,
